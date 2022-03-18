@@ -53,5 +53,20 @@ public class RequestResource {
         requestRepository.save(request);
     }
 
+    @PutMapping("/nesRequest")
+    public void newRequest(@RequestBody Request request) {
+        log.debug("REST request to change a new a flight");
+        request.setStatus(RequestStatus.NEW);
+        requestRepository.save(request);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteRequest(@PathVariable Long id){
+        log.debug("REST to delete a request: "+id);
+        log.info(id.toString());
+        Optional<Request> request = requestRepository.findById(id);
+        this.requestRepository.delete(request.get());
+    }
+
 
 }

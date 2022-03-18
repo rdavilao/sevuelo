@@ -15,12 +15,16 @@ export class RequestsComponent implements OnInit {
   constructor(private requestService: RequestService) { }
 
   ngOnInit(): void {
-    this.getRequests();
+    this.getRequests();   
   }
 
   getRequests(): void {
     this.requestService.getRequests()
       .subscribe(requests => this.requests = requests);
+  }
+  
+  delete(id:number){
+    this.requestService.deleteRequest(id).subscribe(() => (this.getRequests()));    
   }
 
 }

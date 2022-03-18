@@ -32,8 +32,19 @@ export class RequestService {
     return this.http.put(`${this.url}/reserve`, request, this.httpOptions);
   }
 
+  newRequest(request: Request): Observable<any> {
+    return this.http.put(`${this.url}/nesRequest`, request, this.httpOptions);
+  }
+
+
   addRequest(request: Request): Observable<Request> {
+    console.log(request);
     return this.http.post<Request>(`${this.url}/requests`, request, this.httpOptions);
+  }
+
+  deleteRequest(id: number): Observable<Request> {
+    console.log(id);
+    return this.http.delete<Request>(`${this.url}/delete/${id}`);
   }
 
 }

@@ -24,12 +24,21 @@
               </span>
             </label>
         </div>
+        <div>
+          <label>Observation:
+            <span>
+                {{request.observation}}
+            </span>
+          </label>
+      </div>
         <button type="submit"
             (click)="previousState()"
             class="btn btn-info">
           <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
         </button>
-        <button (click)="reserve()" class="btn btn-success">Reserve</button>
+
+        <button [hidden]="request.status == 'RESERVED'" (click)="reserve()" class="btn btn-success">Reserve</button>
+        <button [hidden]="request.status == 'NEW'" (click)="nRequest()" class="btn btn-success">New</button>
     </div>
   </div>
 </div>

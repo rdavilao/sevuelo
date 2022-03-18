@@ -28,6 +28,13 @@
                         Destination is required
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="observation">Observation:</label>
+                    <input [(ngModel)]="request.observation" type="text" class="form-control"
+                        placeholder="observation" name="observation" id="observation"
+                        #observation="ngModel" />
+                    
+                </div>
                 <button type="button"
                     (click)="previousState()"
                     class="btn btn-info">

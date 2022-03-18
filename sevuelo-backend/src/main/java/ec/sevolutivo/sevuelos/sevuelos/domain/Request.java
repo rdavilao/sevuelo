@@ -31,10 +31,23 @@ public class Request implements Serializable {
     @Column(name = "destination", length = 100, nullable = false)
     private String destination;
 
+
+    @Size(max = 200)
+    @Column(name = "observation", length = 200)
+    private String observation;
+
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private RequestStatus status;
+
+    public String getObservation() {
+        return observation;
+    }
+
+    public void setObservation(String observation) {
+        this.observation = observation;
+    }
 
     public Long getId() {
         return id;
