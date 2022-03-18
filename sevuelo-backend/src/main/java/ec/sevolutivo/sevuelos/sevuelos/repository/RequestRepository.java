@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface RequestRepository extends JpaRepository<Request, Long> {
 
-    List<Request> findAllByName(String destination);
+    List<Request> findAllByDestination(String destination);
 
 }
